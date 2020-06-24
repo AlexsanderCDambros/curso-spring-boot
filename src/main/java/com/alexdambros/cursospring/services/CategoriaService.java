@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.alexdambros.cursospring.domain.Categoria;
 import com.alexdambros.cursospring.repositories.CategoriaRepository;
+import com.alexdambros.cursospring.services.exeptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -17,11 +18,15 @@ public class CategoriaService {
 	
 	public Categoria findById(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 	
 	public List<Categoria> findAll() {
 		List<Categoria> obj = repo.findAll();
+		if (obj.isEmpty()) {
+			throw new ObjectNotFoundException("Nenhuma categoria foi encontrada.");
+		}
 		return obj;
 	}
 
