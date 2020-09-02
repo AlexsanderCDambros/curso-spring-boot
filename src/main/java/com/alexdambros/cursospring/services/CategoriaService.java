@@ -25,11 +25,11 @@ public class CategoriaService {
 	}
 	
 	public List<Categoria> findAll() {
-		List<Categoria> obj = repo.findAll();
-		if (obj.isEmpty()) {
+		List<Categoria> list = repo.findAll();
+		if (list.isEmpty()) {
 			throw new ObjectNotFoundException("Nenhuma categoria foi encontrada.");
 		}
-		return obj;
+		return list;
 	}
 	
 	public Categoria insert(Categoria obj) {

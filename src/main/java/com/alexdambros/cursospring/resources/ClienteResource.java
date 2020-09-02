@@ -28,11 +28,11 @@ public class ClienteResource {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<?> findAll() {
+	public ResponseEntity<List<Cliente>> findAll() {
 		
-		List<Cliente> obj = service.findAll();
+		List<Cliente> list = service.findAll();
 		
-		return ResponseEntity.ok(obj);
+		return ResponseEntity.ok(list);
 	}
 	
 }

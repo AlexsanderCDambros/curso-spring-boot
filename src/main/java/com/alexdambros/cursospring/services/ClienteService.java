@@ -23,11 +23,11 @@ public class ClienteService {
 	}
 	
 	public List<Cliente> findAll() {
-		List<Cliente> obj = repo.findAll();
-		if (obj.isEmpty()) {
+		List<Cliente> list = repo.findAll();
+		if (list.isEmpty()) {
 			throw new ObjectNotFoundException("Nenhuma categoria foi encontrada.");
 		}
-		return obj;
+		return list;
 	}
 
 }

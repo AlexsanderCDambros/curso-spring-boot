@@ -28,11 +28,11 @@ public class PedidoResource {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<?> findAll() {
+	public ResponseEntity<List<Pedido>> findAll() {
 		
-		List<Pedido> obj = service.findAll();
+		List<Pedido> list = service.findAll();
 		
-		return ResponseEntity.ok(obj);
+		return ResponseEntity.ok(list);
 	}
 	
 }
